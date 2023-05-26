@@ -40,7 +40,7 @@ jobs:
       - name: Download Xygeni Scanner 
         run: |
           echo Downloading Xygeni Scanner ....
-          curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u ${{ env.XY_USERNAME }} -p ${{ env.XY_PASSWORD }} -s ${{ env.XY_URL }} -d ${GITHUB_WORKSPACE}/scanner
+          curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u ${{ env.XY_USERNAME }} -p ${{ env.XY_PASSWORD }} -s ${{ env.XY_URL }} -d ${GITHUB_WORKSPACE}/scanner 
           ls -l
           git log
 
@@ -49,22 +49,12 @@ jobs:
       - name: Execution Xygeni Scanner (vuln)
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE}
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
           echo =======
           ls -al ${GITHUB_WORKSPACE}
           echo =======
           ls -al 
 
-      - name: Execution Xygeni Scanner (fixed)
-        env:
-          BRANCH: ${{ github.head_ref }}
-        run: |
-          echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ env.BRANCH }}-CMD --dir ${GITHUB_WORKSPACE}
-          echo =======
-          ls -al ${GITHUB_WORKSPACE}
-          echo =======
-          ls -al 
           
 
       
