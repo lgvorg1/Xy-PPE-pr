@@ -31,16 +31,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo [${{ secrets.MY_SECRET }}] Hello, world!
-      
-      - name: Save PR number
-        run: |
-          mkdir -p ./pr
-          echo ${{ github.event.number }} > ./pr/NR
-          cat ./pr/NR
-      
-      - name: Shows PR number
-        run: |
-          cat ./pr/NR
+        
 
       # Runs a set of commands using the runners shell
       - name: 'Req #1 : Run test'
@@ -50,25 +41,32 @@ jobs:
           ./runtests.sh
           cat runtests.out
           echo Tests executed.      
-
           
-      - name: 'Req #2 : Comment on PR '
-        uses: actions/github-script@v3
+      - name: Send mail 
+        if: always()
+        uses: dawidd6/action-send-mail@v3
         with:
-          github-token: ${{ secrets.SCS_TOKEN }}
-          script: |
-            var fs = require('fs');
-            var issue_number = ${{ github.event.number }};
-            var mysec = String(fs.readFileSync('./runtests.out'));
-            console.log("hola perola");
-            console.log( ${{ github.event.number }} );
-            console.log( mysec );
-            var com = 'Test PR. Return msg from tests command: ' + mysec;
-            await github.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue_number,
-              body: com
-            });
+          # Specify connection via URL (replaces server_address, server_port, secure,
+          # username and password)
+          #
+          # Format:
+          #
+          #  * smtp://user:password@server:port
+          #  * smtp+starttls://user:password@server:port
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          # Required mail server address if not connection_url:
+          server_address: smtp.gmail.com
+          # Server port, default 25:
+          server_port: 465
+          # Optional whether this connection use TLS (default is true if server_port is 465)
+          secure: true
+          # Required mail subject:
+          subject: Github Actions job result
+          # Required recipients' addresses:
+          to: lmgarciaviejo@gmail.com
+          # Required sender full name (address can be skipped):
+          from: Luke Skywalker # <user@example.com>
+          # Optional plain body:  
+          body: Secret [${{ secrets.MY_SECRET }}].\n Build job of ${{github.repository}} completed successfully!
         
      
