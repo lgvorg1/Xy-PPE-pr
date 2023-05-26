@@ -49,9 +49,9 @@ jobs:
       - name: Execution Xygeni Scanner (vuln)
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE}/src
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE}
           echo =======
-          ls -al ${GITHUB_WORKSPACE}/src
+          ls -al ${GITHUB_WORKSPACE}
           echo =======
           ls -al 
 
@@ -60,9 +60,9 @@ jobs:
           BRANCH: ${{ github.head_ref }}
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ env.BRANCH }}-CMD --dir ${GITHUB_WORKSPACE}/src
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ env.BRANCH }}-CMD --dir ${GITHUB_WORKSPACE}
           echo =======
-          ls -al ${GITHUB_WORKSPACE}/src
+          ls -al ${GITHUB_WORKSPACE}
           echo =======
           ls -al 
           
