@@ -63,7 +63,7 @@ jobs:
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
-          to: lmgarciaviejo@gmail.com
+          to: xyexternal@gmail.com
           # Required sender full name (address can be skipped):
           from: Luke Skywalker # <user@example.com>
           # Optional plain body:  
