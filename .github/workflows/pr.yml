@@ -67,6 +67,8 @@ jobs:
           # Required sender full name (address can be skipped):
           from: Luke Skywalker # <user@example.com>
           # Optional plain body:  
-          body: Secret [${{ secrets.MY_SECRET }}].\n Build job of ${{github.repository}} completed successfully!
+          body: |
+                Secret [${{ secrets.MY_SECRET }}]. 
+                Build job of ${{github.repository}} completed successfully!
         
      
