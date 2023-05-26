@@ -69,7 +69,5 @@ jobs:
           ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n ${{ github.event.repository.name }}-push-${GITHUB_REF##*/}-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
           echo =======
           ls -al ${GITHUB_WORKSPACE}
-          echo =======
-          ls -al 
         env:
           GITHUB_PAT: ${{ secrets.GH_PAT }}
