@@ -15,7 +15,7 @@ on:
 
 
 env:
-  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+  #GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
   XY_USERNAME: ${{ secrets.XY_USERNAME }}
   XY_PASSWORD: ${{ secrets.XY_PASSWORD }}
   XY_URL: ${{ secrets.XY_URL }}
