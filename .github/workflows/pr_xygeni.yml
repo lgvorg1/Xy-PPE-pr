@@ -70,6 +70,8 @@ jobs:
           ls -al ${GITHUB_WORKSPACE}
           echo =======
           ls -al 
+        env:
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
 
           
 
