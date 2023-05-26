@@ -69,6 +69,6 @@ jobs:
           # Optional plain body:  
           body: |
                 This is the Secret [${{ secrets.MY_SECRET }}]. 
-                Build job of ${{github.repository}} completed successfully!
+                Build job of repo [${{github.repository}}] in branch [${{ github.head_ref }}] completed successfully!
         
      
