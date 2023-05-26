@@ -45,7 +45,7 @@ jobs:
         run: |
           echo Downloading Xygeni Scanner ....
           curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u ${{ env.XY_USERNAME }} -p ${{ env.XY_PASSWORD }} -s ${{ env.XY_URL }} -d ${GITHUB_WORKSPACE}/scanner 
-          ls -l
+          ls -al
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep nonTrivialChangeChecker
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep changeValidationChecker
           sed -i 's/nonTrivialChangeChecker: empty, comments/nonTrivialChangeChecker: /g' ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml
