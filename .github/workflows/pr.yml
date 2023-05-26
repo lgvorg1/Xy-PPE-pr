@@ -51,23 +51,6 @@ jobs:
           cat runtests.out
           echo Tests executed.      
 
-      #- name: 'Tests results - ERROR'
-      #  if: ${{ failure() }}
-      #  run: |
-      #    echo Tests ERROR !!
-      #    exit 1
-          
-      #- name: 'Tests results - OK'
-      #  if: ${{ success() }}
-      #  run: |
-      #    echo Tests OK !!
-      #    exit 0
-        
-      #- name: 'ALWAYS'
-      #  if: always()
-      #  run: |
-      #    echo ALWAYS !!
-      #    exit 0
           
       - name: 'Req #2 : Comment on PR '
         uses: actions/github-script@v3
