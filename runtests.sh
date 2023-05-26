@@ -1,6 +1,6 @@
 RET=0
 
-echo "Testing from BRANCH " >> runtests.out
+echo "Testing from BRANCH  " >> runtests.out
 
 foo=$MY_SECRET
 ss=""
