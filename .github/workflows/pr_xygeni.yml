@@ -59,6 +59,7 @@ jobs:
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep nonTrivialChangeChecker
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep changeValidationChecker
           cat ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/unprotected_branch.yml | grep enforceAdmins
+          cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml
 
 
       # Runs a set of commands using the runners shell
