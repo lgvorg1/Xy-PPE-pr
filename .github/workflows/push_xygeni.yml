@@ -49,7 +49,7 @@ jobs:
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep nonTrivialChangeChecker
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep changeValidationChecker
           sed -i 's/nonTrivialChangeChecker: empty, comments/nonTrivialChangeChecker: /g' ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml
-          sed -i 's/changeValidationChecker: pr_reviewed OR (commit_signed AND author_is_admin)/changeValidationChecker: pr_reviewed/g' ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml
+          sed -i 's/changeValidationChecker: pr_reviewed OR (commit_signed AND author_is_admin)/changeValidationChecker: /g' ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml
           
           cat ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/unprotected_branch.yml | grep enforceAdmins
           sed -i 's/enforceAdmins: false/enforceAdmins: true /g' ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/unprotected_branch.yml
