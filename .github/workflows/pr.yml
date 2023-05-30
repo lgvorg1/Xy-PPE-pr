@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions 
 
-name: CI PR (modificado en branch )
+name: CI PR (modificado en branch con JA)
 
 # Controls when the workflow will run sd
 on:
