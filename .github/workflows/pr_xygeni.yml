@@ -34,7 +34,7 @@ jobs:
         with:
           # Number of commits to fetch. 0 indicates all history for all branches and tags.
           # Default: 1
-          fetch-depth: '10'
+          fetch-depth: '0'
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -66,7 +66,7 @@ jobs:
       - name: Execution Xygeni Scanner (vuln)
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE}
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
           echo =======
           ls -al ${GITHUB_WORKSPACE}
           echo =======
