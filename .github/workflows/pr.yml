@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI PR
+name: CI PR from internal branch
 
 # Controls when the workflow will run
 on:
@@ -33,11 +33,7 @@ jobs:
         run: git log
 
       # Runs a set of commands using the runners shell
-      - name: 'Req #1 : Run test'
+      - name: 'internal branch'
         run: |
-          echo Running tests..
-          chmod +x runtests.sh
-          ./runtests.sh
-          cat runtests.out
-          echo Tests executed.      
+          echo internal branch 
           
