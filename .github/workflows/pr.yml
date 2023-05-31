@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI PR branch internal 0 y sin exclude
+name: CI PR branch internal 0 y sin exclude 2
 
 # Controls when the workflow will run
 on:
@@ -33,7 +33,7 @@ jobs:
         run: git log
 
       # Runs a set of commands using the runners shell
-      - name: 'branch internal 0 y sin exclude'
+      - name: 'branch internal 0 y sin exclude 2'
         run: |
-          echo branch internal 0 y sin exclude     
+          echo branch internal 0 y sin exclude 2    
           
